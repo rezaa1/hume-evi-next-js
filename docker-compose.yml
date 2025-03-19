@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - HUME_API_KEY=${HUME_API_KEY}
+      - HUME_SECRET_KEY=${HUME_SECRET_KEY}
+    volumes:
+      - .:/app
+    command: npm run dev
